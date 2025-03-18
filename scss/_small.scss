@@ -1,0 +1,398 @@
+@import "variables";
+
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS. */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Apply a natural box layout model to all elements */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+} // end all elements
+
+/* --------------------------- BODY --------------------------- */
+body {
+  font-family: $primary-font, sans-serif;
+  background-color: lighten($primary-color, 20%);
+  color: $text-light;
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+}
+
+/* --------------------------- HEADER --------------------------- */
+#headerWrapper {
+  border-bottom: 1px solid;
+}
+header {
+  display: grid;
+  grid-template-columns: 50px auto;
+  column-gap: $gutter;
+  align-items: center; // vertically
+  padding: 0.5rem $gutter;
+  span {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.6rem;
+    font-weight: $lightWeight;
+    color: $text-light;
+  }
+} // end header
+.logo img {
+  width: 50px;
+  height: auto;
+}
+
+@media screen and (min-width: 501px) {
+  .logo img {
+    width: 90px;
+  }
+}
+
+@media screen and (min-width: 901px) {
+  .logo img {
+    width: 135px;
+  }
+}
+/* --------------------------- NAVIGATION STUFF GOES HERE --------------------------- */
+.navbar {
+  background: $primary-color; // Corrected variable name
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 6px $shadow-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+
+      &:hover {
+        color: $accent-color;
+      }
+    }
+  }
+}
+
+#theButton::before {
+  content: "\2630";
+}
+//style the button
+#theButton {
+  border: none;
+  background: none;
+  font-size: 2rem;
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+#theNav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  li a {
+    color: $text-light; // Corrected variable name
+    display: block;
+    padding: 0.75rem $gutter;
+    text-decoration: none;
+    border-bottom: 1px solid black;
+  }
+  li.active a {
+    color: $secondary-color;
+  }
+} // end unordered
+
+/* CSS for the open class */
+#theButton.open::before {
+  content: "\2715";
+}
+
+#theNav {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s ease-out;
+  ul {
+    overflow: hidden;
+  }
+}
+#theNav.open {
+  grid-template-rows: 1fr;
+}
+
+/* --------------------------- MAIN --------------------------- */
+main {
+  h1 {
+    padding: 1rem $gutter 0.5rem $gutter;
+    font-size: 1.5rem;
+    color: $secondary-color;
+    font-weight: $lightWeight;
+  }
+  p {
+    padding: 0.5rem $gutter;
+    color: #333;
+    line-height: $leading;
+  }
+} // end main
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  text-align: center;
+  background: linear-gradient(rgba(30, 30, 47, 0.8), rgba(30, 30, 47, 0.9)),
+    url("hero-image.jpg");
+  background-size: cover;
+  background-position: center;
+
+  .hero-content {
+    max-width: 600px;
+
+    h1 {
+      font-size: 3rem;
+      color: $text-light;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.25rem;
+      color: lighten($text-light, 20%);
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background: $secondary-color;
+      color: $text-light;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &:hover {
+        background: darken($secondary-color, 10%);
+      }
+    }
+  }
+}
+
+.parentHero {
+  border: $secondary-color solid 1px;
+  position: relative;
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  p {
+    position: absolute;
+    margin: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.9) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    padding: 1rem;
+    top: calc(50% - 35px);
+    width: 80%;
+    left: 10%;
+    text-align: center;
+    color: $primary-color;
+    font-size: 1.5rem;
+  }
+}
+
+// Cards styling
+.cards {
+  display: flex;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  justify-content: center;
+  flex-wrap: wrap; // for responsiveness
+
+  section.tire {
+    background: darken($primary-color, 5%);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 6px 10px $shadow-color;
+    transition: transform 0.3s, box-shadow 0.3s;
+    max-width: 300px;
+    flex-grow: 1;
+    flex-basis: 250px;
+    text-align: center;
+
+    img {
+      width: 80px; // Adjust icon size here
+      height: auto;
+      display: block;
+      margin: 0 auto 1rem;
+      transition: transform 0.3s;
+    }
+
+    h3 {
+      color: $accent-color;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: $text-light;
+      margin-bottom: 1.5rem;
+    }
+
+    button {
+      background: $secondary-color;
+      color: $text-light;
+      padding: 0.5rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &:hover {
+        background: darken($secondary-color, 10%);
+      }
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px $shadow-color;
+
+      img {
+        animation: myBounce 1s ease-out;
+      }
+    }
+  }
+}
+
+// Bounce keyframes
+@keyframes myBounce {
+  0% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  25% {
+    transform: translateY(-10px);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  75% {
+    transform: translateY(-5px);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+}
+
+// begin car reviews
+div#parent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+
+  section.review-card {
+    background: lighten($primary-color, 10%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+      font-size: 1rem;
+      color: $text-light;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      color: lighten($text-light, 30%);
+      font-weight: bold;
+      font-size: 1.25rem;
+    }
+
+    img {
+      width: 20px;
+      margin-top: 0.75rem;
+    }
+  }
+}
+
+/* --------------------------- FOOTER --------------------------- */
+#footerWrapper {
+  background-color: $footerBgColor;
+  color: $footerTextColor;
+}
+
+footer {
+  padding: 1rem $gutter;
+  text-align: center;
+
+  section.contact {
+    p {
+      font-size: 1.2rem;
+      margin: 0.5rem;
+    }
+
+    ion-icon {
+      color: $iconColor;
+      padding-right: 5px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
+
+  section.social {
+    display: flex;
+    justify-content: center;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: solid 1px $socialBorderColor;
+      font-size: 2rem;
+      margin: 0.5rem;
+      padding: 0.5rem;
+      color: inherit;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $socialHoverColor;
+      }
+    }
+  }
+}
