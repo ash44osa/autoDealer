@@ -306,6 +306,12 @@ main {
   }
 }
 
+.reviewWrapper {
+  margin-top: 0; // prevent unnecessary margin if any
+  margin-bottom: 1.5rem; // spacing under the heading
+  text-align: center;
+}
+
 // begin car reviews
 div#parent {
   display: grid;
