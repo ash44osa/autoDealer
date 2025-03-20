@@ -335,11 +335,11 @@ header {
   align-items: center;
   padding: 0.5rem 10px;
 }
-header span {
+header h1 {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 300;
   color: #f8f8f8;
 }

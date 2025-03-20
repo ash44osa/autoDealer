@@ -33,11 +33,11 @@ header {
   column-gap: $gutter;
   align-items: center; // vertically
   padding: 0.5rem $gutter;
-  span {
+  h1 {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-weight: $lightWeight;
     color: $text-light;
   }
