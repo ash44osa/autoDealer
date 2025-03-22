@@ -437,9 +437,11 @@ header h1 {
 /* --------------------------- MAIN --------------------------- */
 main h1 {
   padding: 1rem 10px 0.5rem 10px;
-  font-size: 1.5rem;
-  color: #ff6b6b;
+  font-size: 2rem;
+  color: #f8f8f8;
   font-weight: 300;
+  font-family: "Bebas Neue", sans-serif, sans-serif;
+  text-align: center;
 }
 main p {
   padding: 0.5rem 10px;
