@@ -33,7 +33,7 @@ header {
   column-gap: $gutter;
   align-items: center; // vertically
   padding: 0.5rem $gutter;
-  h1 {
+  span {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
